@@ -1,0 +1,68 @@
+spring:
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: deepseek-r1:1.5b
+  application:
+    name: rrmianshi
+  # 数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/rrmianshi
+    username: root
+    password: hhh318413085066
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # mail
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    username: yangrrtec@163.com
+    password: GKPOQEIVGHXYBOJD
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      timeout: 5000
+  session:
+    timeout: 86400
+minio:
+  endpoint: http://192.168.137.130:9000
+  access-key: admin
+  secret-key: password
+  bucket-name: yangrr
+#logging:
+#  level:
+#    com.yangrr.rrmianshi.service: debug
+# mybatis-plus配置
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.yangrr.rrmianshi.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+# 代码沙箱配置
+codesandbox:
+  type: remote
+logging:
+  level:
+    com.yangrr.rrmianshi: error
